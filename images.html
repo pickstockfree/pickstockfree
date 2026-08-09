@@ -94,6 +94,14 @@
             color: #475569;
             font-size: 20px;
             font-weight: bold;
+            overflow: hidden;
+        }
+
+        .preview img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
         }
 
         .card-content {
@@ -192,12 +200,15 @@
         <section class="gallery">
 
             <article class="card">
-                <div class="preview">AI Image Preview</div>
+                <div class="preview">
+                    <img src="file_00000000109c82069ae2543fbd6f6cd6.png"
+                         alt="Creative AI Image">
+                </div>
 
                 <div class="card-content">
                     <h3>Creative AI Image</h3>
                     <p>Free AI-generated stock image for creative projects.</p>
-                    <a class="download" href="#">Download Free</a>
+                    <a class="download" href="file_00000000109c82069ae2543fbd6f6cd6.png" download>Download Free</a>
                 </div>
             </article>
 
@@ -266,4 +277,4 @@
     </footer>
 
 </body>
-          </html>
+            </html>
