@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>PickStockFree Admin Dashboard</title>
+    <title>
+        PickStockFree Admin Dashboard
+    </title>
 
     <meta
         name="description"
@@ -21,7 +24,12 @@
         content="noindex, nofollow"
     >
 
+
     <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
 
         * {
             box-sizing: border-box;
@@ -29,9 +37,11 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family:
@@ -40,9 +50,12 @@
                 sans-serif;
 
             background: #f1f5f9;
+
             color: #0f172a;
+
             line-height: 1.6;
         }
+
 
         button,
         input,
@@ -51,13 +64,15 @@
             font: inherit;
         }
 
+
         button {
             cursor: pointer;
         }
 
-        /* =========================
+
+        /* =====================================================
            HEADER
-        ========================== */
+        ====================================================== */
 
         header {
             background:
@@ -68,63 +83,84 @@
                 );
 
             color: white;
-            padding: 22px 20px;
+
+            padding:
+                22px 20px;
         }
+
 
         .header-inner {
             max-width: 1180px;
+
             margin: auto;
 
             display: flex;
+
             align-items: center;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
 
             gap: 20px;
         }
 
+
         .brand {
             color: white;
+
             text-decoration: none;
 
             font-size: 25px;
+
             font-weight: 800;
         }
 
+
         .admin-label {
             color: #dbeafe;
+
             font-size: 14px;
+
             font-weight: 700;
         }
 
-        /* =========================
+
+        /* =====================================================
            MAIN
-        ========================== */
+        ====================================================== */
 
         main {
             max-width: 1180px;
+
             margin: auto;
 
             padding:
                 30px 20px 60px;
         }
 
+
         .page-heading {
             margin-bottom: 25px;
         }
 
+
         .page-heading h1 {
             font-size: 34px;
+
             line-height: 1.2;
+
             margin-bottom: 7px;
         }
+
 
         .page-heading p {
             color: #64748b;
         }
 
-        /* =========================
+
+        /* =====================================================
            STATISTICS
-        ========================== */
+        ====================================================== */
 
         .stats {
             display: grid;
@@ -140,10 +176,13 @@
             margin-bottom: 30px;
         }
 
+
         .stat-card {
             background: white;
 
-            border: 1px solid #e2e8f0;
+            border:
+                1px solid #e2e8f0;
+
             border-radius: 16px;
 
             padding: 22px;
@@ -158,28 +197,35 @@
                 );
         }
 
+
         .stat-title {
             color: #64748b;
 
             font-size: 13px;
+
             font-weight: 700;
 
             margin-bottom: 7px;
         }
 
+
         .stat-number {
             font-size: 30px;
+
             font-weight: 800;
         }
 
-        /* =========================
-           CARDS
-        ========================== */
+
+        /* =====================================================
+           CARD
+        ====================================================== */
 
         .card-section {
             background: white;
 
-            border: 1px solid #e2e8f0;
+            border:
+                1px solid #e2e8f0;
+
             border-radius: 18px;
 
             padding: 28px;
@@ -196,25 +242,33 @@
                 );
         }
 
+
         .card-section h2 {
             font-size: 24px;
+
             margin-bottom: 8px;
         }
 
+
         .card-description {
             color: #64748b;
+
             margin-bottom: 22px;
         }
 
-        /* =========================
+
+        /* =====================================================
            BUTTONS
-        ========================== */
+        ====================================================== */
 
         .button-row {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 10px;
         }
+
 
         .primary-button,
         .secondary-button,
@@ -228,52 +282,67 @@
             border-radius: 10px;
 
             font-weight: 800;
+
             font-size: 14px;
         }
 
+
         .primary-button {
             background: #2563eb;
+
             color: white;
         }
+
 
         .primary-button:hover {
             background: #1d4ed8;
         }
 
+
         .secondary-button {
             background: #e2e8f0;
+
             color: #334155;
         }
+
 
         .secondary-button:hover {
             background: #cbd5e1;
         }
 
+
         .success-button {
             background: #16a34a;
+
             color: white;
         }
+
 
         .success-button:hover {
             background: #15803d;
         }
 
+
         .danger-button {
             background: #dc2626;
+
             color: white;
         }
+
 
         .danger-button:hover {
             background: #b91c1c;
         }
 
-        /* =========================
-           UPLOAD FORM
-        ========================== */
+
+        /* =====================================================
+           FORM
+        ====================================================== */
 
         #imageFormSection {
             display: none;
         }
+
 
         .form-grid {
             display: grid;
@@ -287,43 +356,56 @@
             gap: 20px;
         }
 
+
         .form-group {
             display: flex;
+
             flex-direction: column;
         }
 
+
         .form-group.full-width {
-            grid-column: 1 / -1;
+            grid-column:
+                1 / -1;
         }
+
 
         .form-group label {
             color: #334155;
 
             font-size: 14px;
+
             font-weight: 800;
 
             margin-bottom: 7px;
         }
 
+
         .required {
             color: #dc2626;
         }
+
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
 
-            border: 1px solid #cbd5e1;
+            border:
+                1px solid #cbd5e1;
+
             border-radius: 10px;
 
             background: white;
+
             color: #0f172a;
 
-            padding: 12px 13px;
+            padding:
+                12px 13px;
 
             outline: none;
         }
+
 
         .form-group input:focus,
         .form-group textarea:focus,
@@ -340,10 +422,13 @@
                 );
         }
 
+
         .form-group textarea {
             min-height: 125px;
+
             resize: vertical;
         }
+
 
         .help-text {
             color: #94a3b8;
@@ -353,26 +438,32 @@
             margin-top: 5px;
         }
 
-        /* =========================
-           FILE UPLOAD
-        ========================== */
+
+        /* =====================================================
+           UPLOAD
+        ====================================================== */
 
         .upload-box {
-            border: 2px dashed #93c5fd;
+            border:
+                2px dashed #93c5fd;
 
             background: #eff6ff;
 
             border-radius: 14px;
 
-            padding: 25px 20px;
+            padding:
+                25px 20px;
 
             text-align: center;
         }
 
+
         .upload-icon {
             font-size: 38px;
+
             margin-bottom: 8px;
         }
+
 
         .upload-box strong {
             display: block;
@@ -384,6 +475,7 @@
             margin-bottom: 5px;
         }
 
+
         .upload-box p {
             color: #64748b;
 
@@ -392,14 +484,17 @@
             margin-bottom: 15px;
         }
 
+
         .file-input {
             display: none;
         }
+
 
         .choose-file-button {
             display: inline-block;
 
             background: #2563eb;
+
             color: white;
 
             padding:
@@ -408,14 +503,17 @@
             border-radius: 9px;
 
             font-size: 14px;
+
             font-weight: 800;
 
             cursor: pointer;
         }
 
+
         .choose-file-button:hover {
             background: #1d4ed8;
         }
+
 
         .selected-file {
             margin-top: 12px;
@@ -423,27 +521,32 @@
             color: #334155;
 
             font-size: 13px;
+
             font-weight: 700;
 
             word-break: break-word;
         }
 
-        /* =========================
-           IMAGE PREVIEW
-        ========================== */
+
+        /* =====================================================
+           PREVIEW
+        ====================================================== */
 
         .preview-section {
             margin-top: 25px;
         }
 
+
         .preview-title {
             color: #334155;
 
             font-size: 15px;
+
             font-weight: 800;
 
             margin-bottom: 10px;
         }
+
 
         .preview-box {
             display: none;
@@ -456,19 +559,23 @@
 
             background: #e2e8f0;
 
-            border: 1px solid #e2e8f0;
+            border:
+                1px solid #e2e8f0;
         }
+
 
         .preview-box img {
             display: block;
 
             width: 100%;
+
             height: auto;
         }
 
-        /* =========================
+
+        /* =====================================================
            FORM ACTIONS
-        ========================== */
+        ====================================================== */
 
         .form-actions {
             display: flex;
@@ -485,44 +592,66 @@
                 1px solid #e2e8f0;
         }
 
-        /* =========================
-           STATUS MESSAGE
-        ========================== */
+
+        /* =====================================================
+           STATUS
+        ====================================================== */
 
         .status-message {
             display: none;
 
             margin-top: 18px;
 
-            padding: 14px 16px;
+            padding:
+                14px 16px;
 
             border-radius: 10px;
 
             font-size: 14px;
+
             font-weight: 700;
         }
+
 
         .status-message.success {
             display: block;
 
             background: #dcfce7;
-            border: 1px solid #86efac;
+
+            border:
+                1px solid #86efac;
 
             color: #166534;
         }
+
 
         .status-message.warning {
             display: block;
 
             background: #fef3c7;
-            border: 1px solid #fcd34d;
+
+            border:
+                1px solid #fcd34d;
 
             color: #92400e;
         }
 
-        /* =========================
+
+        .status-message.error {
+            display: block;
+
+            background: #fee2e2;
+
+            border:
+                1px solid #fca5a5;
+
+            color: #991b1b;
+        }
+
+
+        /* =====================================================
            CATEGORIES
-        ========================== */
+        ====================================================== */
 
         .categories {
             display: grid;
@@ -538,10 +667,12 @@
             margin-top: 20px;
         }
 
+
         .category {
             background: #f8fafc;
 
-            border: 1px solid #e2e8f0;
+            border:
+                1px solid #e2e8f0;
 
             border-radius: 12px;
 
@@ -551,6 +682,7 @@
 
             font-weight: 700;
         }
+
 
         .category span {
             display: block;
@@ -562,14 +694,16 @@
             margin-bottom: 3px;
         }
 
-        /* =========================
+
+        /* =====================================================
            NOTICE
-        ========================== */
+        ====================================================== */
 
         .notice {
             background: #eff6ff;
 
-            border: 1px solid #bfdbfe;
+            border:
+                1px solid #bfdbfe;
 
             border-radius: 12px;
 
@@ -582,15 +716,17 @@
             font-size: 13px;
         }
 
+
         .notice strong {
             display: block;
 
             margin-bottom: 4px;
         }
 
-        /* =========================
+
+        /* =====================================================
            LIBRARY
-        ========================== */
+        ====================================================== */
 
         .empty-state {
             text-align: center;
@@ -598,17 +734,18 @@
             background: #f8fafc;
 
             border:
-                1px dashed
-                #cbd5e1;
+                1px dashed #cbd5e1;
 
             border-radius: 14px;
 
-            padding: 35px 20px;
+            padding:
+                35px 20px;
 
             color: #64748b;
 
             margin-top: 20px;
         }
+
 
         .empty-state strong {
             display: block;
@@ -620,9 +757,153 @@
             margin-bottom: 6px;
         }
 
-        /* =========================
+
+        #imageLibrary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+
+        .image-card {
+            background: #ffffff;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.06
+                );
+        }
+
+
+        .image-card-preview {
+            width: 100%;
+
+            height: 190px;
+
+            object-fit: cover;
+
+            display: block;
+
+            background: #e2e8f0;
+        }
+
+
+        .image-card-content {
+            padding: 15px;
+        }
+
+
+        .image-card-title {
+            font-size: 17px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+
+            color: #0f172a;
+        }
+
+
+        .image-card-meta {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .status-badge {
+            display: inline-block;
+
+            padding:
+                4px 9px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            margin-top: 6px;
+        }
+
+
+        .status-badge.published {
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+
+        .status-badge.draft {
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+
+        .image-card-buttons {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 13px;
+        }
+
+
+        .small-button {
+            flex: 1;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            padding:
+                9px 10px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .details-button {
+            background: #e2e8f0;
+
+            color: #334155;
+        }
+
+
+        .delete-image-button {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================== */
+        ====================================================== */
 
         footer {
             background: #0f172a;
@@ -631,8 +912,10 @@
 
             text-align: center;
 
-            padding: 30px 20px;
+            padding:
+                30px 20px;
         }
+
 
         footer strong {
             display: block;
@@ -644,95 +927,167 @@
             margin-bottom: 5px;
         }
 
+
         footer p {
             font-size: 13px;
         }
 
-        /* =========================
+
+        /* =====================================================
            MOBILE
-        ========================== */
+        ====================================================== */
 
         @media (max-width: 850px) {
 
             .stats {
+
                 grid-template-columns:
                     repeat(
                         2,
                         minmax(0, 1fr)
                     );
+
             }
+
 
             .categories {
+
                 grid-template-columns:
                     repeat(
                         2,
                         minmax(0, 1fr)
                     );
+
             }
+
 
             .form-grid {
+
                 grid-template-columns: 1fr;
+
             }
 
+
             .form-group.full-width {
+
                 grid-column: auto;
+
+            }
+
+
+            #imageLibrary {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+
             }
 
         }
 
+
         @media (max-width: 560px) {
 
             header {
-                padding: 18px 16px;
+
+                padding:
+                    18px 16px;
+
             }
+
 
             .header-inner {
-                align-items: flex-start;
+
+                align-items:
+                    flex-start;
+
             }
+
 
             .brand {
+
                 font-size: 22px;
+
             }
+
 
             .admin-label {
+
                 font-size: 12px;
+
             }
+
 
             main {
+
                 padding:
                     25px 16px 50px;
+
             }
+
 
             .page-heading h1 {
+
                 font-size: 29px;
+
             }
+
 
             .stats {
+
                 grid-template-columns: 1fr;
+
             }
+
 
             .categories {
+
                 grid-template-columns: 1fr;
+
             }
+
+
+            #imageLibrary {
+
+                grid-template-columns: 1fr;
+
+            }
+
 
             .card-section {
+
                 padding: 21px;
+
             }
+
 
             .button-row {
+
                 flex-direction: column;
+
             }
+
 
             .button-row button {
+
                 width: 100%;
+
             }
+
 
             .form-actions {
+
                 flex-direction: column;
+
             }
 
+
             .form-actions button {
+
                 width: 100%;
+
             }
 
         }
@@ -741,12 +1096,13 @@
 
 </head>
 
+
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HEADER
-    ========================== -->
+    ====================================================== -->
 
     <header>
 
@@ -759,6 +1115,7 @@
                 PickStockFree
             </a>
 
+
             <div class="admin-label">
                 Admin Dashboard
             </div>
@@ -768,18 +1125,21 @@
     </header>
 
 
-    <!-- =========================
+    <!-- =====================================================
          MAIN
-    ========================== -->
+    ====================================================== -->
 
     <main>
 
+
+        <!-- PAGE HEADING -->
 
         <section class="page-heading">
 
             <h1>
                 Admin Dashboard
             </h1>
+
 
             <p>
                 Upload, organize and manage
@@ -789,9 +1149,9 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              STATISTICS
-        ========================== -->
+        ================================================== -->
 
         <section class="stats">
 
@@ -802,11 +1162,12 @@
                     Total Images
                 </div>
 
+
                 <div
                     class="stat-number"
                     id="totalImages"
                 >
-                    1
+                    0
                 </div>
 
             </div>
@@ -818,11 +1179,12 @@
                     Published
                 </div>
 
+
                 <div
                     class="stat-number"
                     id="publishedImages"
                 >
-                    1
+                    0
                 </div>
 
             </div>
@@ -833,6 +1195,7 @@
                 <div class="stat-title">
                     Drafts
                 </div>
+
 
                 <div
                     class="stat-number"
@@ -850,6 +1213,7 @@
                     Categories
                 </div>
 
+
                 <div
                     class="stat-number"
                     id="categoryCount"
@@ -859,13 +1223,12 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =========================
-             ADD IMAGE ACTION
-        ========================== -->
+        <!-- =================================================
+             ADD IMAGE
+        ================================================== -->
 
         <section class="card-section">
 
@@ -873,10 +1236,12 @@
                 Add New Image
             </h2>
 
+
             <p class="card-description">
-                Create a new image entry with its
-                title, description, category and keywords.
+                Add an image and complete its
+                metadata before saving or publishing.
             </p>
+
 
             <div class="button-row">
 
@@ -893,55 +1258,63 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              IMAGE FORM
-        ========================== -->
+        ================================================== -->
 
         <section
             class="card-section"
             id="imageFormSection"
         >
 
+
             <h2>
                 Add New Image
             </h2>
 
+
             <p class="card-description">
-                Complete the information below
-                before saving or publishing the image.
+                Select an image and enter its
+                complete information.
             </p>
 
 
             <form id="imageForm">
 
 
-                <!-- =========================
-                     IMAGE UPLOAD
-                ========================== -->
+                <!-- IMAGE UPLOAD -->
 
                 <div class="form-group full-width">
 
                     <label>
+
                         Image
+
                         <span class="required">
                             *
                         </span>
+
                     </label>
 
+
                     <div class="upload-box">
+
 
                         <div class="upload-icon">
                             📷
                         </div>
 
+
                         <strong>
                             Select an image
                         </strong>
 
+
                         <p>
-                            Choose the image file
+                            Choose a JPG, PNG or WebP image
                             from your device.
                         </p>
+
 
                         <label
                             class="choose-file-button"
@@ -950,12 +1323,14 @@
                             Choose Image
                         </label>
 
+
                         <input
                             class="file-input"
                             type="file"
                             id="imageFile"
                             accept="image/jpeg,image/png,image/webp"
                         >
+
 
                         <div
                             class="selected-file"
@@ -969,15 +1344,15 @@
                 </div>
 
 
-                <!-- =========================
-                     PREVIEW
-                ========================== -->
+                <!-- IMAGE PREVIEW -->
 
                 <div class="preview-section">
+
 
                     <div class="preview-title">
                         Image Preview
                     </div>
+
 
                     <div
                         class="preview-box"
@@ -995,9 +1370,7 @@
                 </div>
 
 
-                <!-- =========================
-                     METADATA
-                ========================== -->
+                <!-- METADATA -->
 
                 <div
                     class="form-grid"
@@ -1007,26 +1380,31 @@
 
                     <!-- TITLE -->
 
-                    <div class="form-group full-width">
+                    <div
+                        class="form-group full-width"
+                    >
 
                         <label for="imageTitle">
 
                             Title
+
                             <span class="required">
                                 *
                             </span>
 
                         </label>
 
+
                         <input
                             type="text"
                             id="imageTitle"
-                            placeholder="Example: Professional Chef Preparing a Gourmet Dish"
+                            placeholder="Example: Fresh Fruits and Vegetables Composition"
                             autocomplete="off"
                         >
 
+
                         <div class="help-text">
-                            Use a clear and descriptive image title.
+                            Use a clear and descriptive title.
                         </div>
 
                     </div>
@@ -1039,11 +1417,13 @@
                         <label for="imageCategory">
 
                             Category
+
                             <span class="required">
                                 *
                             </span>
 
                         </label>
+
 
                         <select id="imageCategory">
 
@@ -1051,29 +1431,36 @@
                                 Select category
                             </option>
 
+
                             <option value="food">
                                 Food
                             </option>
+
 
                             <option value="nature">
                                 Nature
                             </option>
 
+
                             <option value="technology">
                                 Technology
                             </option>
+
 
                             <option value="business">
                                 Business
                             </option>
 
+
                             <option value="travel">
                                 Travel
                             </option>
 
+
                             <option value="lifestyle">
                                 Lifestyle
                             </option>
+
 
                             <option value="abstract">
                                 Abstract
@@ -1084,7 +1471,7 @@
                     </div>
 
 
-                    <!-- DOWNLOAD NAME -->
+                    <!-- DOWNLOAD FILENAME -->
 
                     <div class="form-group">
 
@@ -1094,15 +1481,17 @@
 
                         </label>
 
+
                         <input
                             type="text"
                             id="downloadFilename"
-                            placeholder="professional-chef-gourmet-dish.png"
+                            placeholder="fresh-fruits-vegetables.jpg"
                             autocomplete="off"
                         >
 
+
                         <div class="help-text">
-                            The filename visitors will receive.
+                            Filename visitors will receive.
                         </div>
 
                     </div>
@@ -1110,16 +1499,20 @@
 
                     <!-- DESCRIPTION -->
 
-                    <div class="form-group full-width">
+                    <div
+                        class="form-group full-width"
+                    >
 
                         <label for="imageDescription">
 
                             Description
+
                             <span class="required">
                                 *
                             </span>
 
                         </label>
+
 
                         <textarea
                             id="imageDescription"
@@ -1131,22 +1524,23 @@
 
                     <!-- KEYWORDS -->
 
-                    <div class="form-group full-width">
+                    <div
+                        class="form-group full-width"
+                    >
 
                         <label for="imageKeywords">
-
                             Keywords
-
                         </label>
+
 
                         <textarea
                             id="imageKeywords"
-                            placeholder="chef, cooking, restaurant, food, gourmet, kitchen..."
+                            placeholder="fruit, vegetables, healthy food, nutrition, fresh produce..."
                         ></textarea>
+
 
                         <div class="help-text">
                             Separate keywords with commas.
-                            Use relevant search terms.
                         </div>
 
                     </div>
@@ -1154,24 +1548,25 @@
 
                     <!-- ALT TEXT -->
 
-                    <div class="form-group full-width">
+                    <div
+                        class="form-group full-width"
+                    >
 
                         <label for="imageAlt">
-
                             Alt Text
-
                         </label>
+
 
                         <input
                             type="text"
                             id="imageAlt"
-                            placeholder="Professional chef preparing a gourmet dish in a restaurant kitchen"
+                            placeholder="Fresh fruits and vegetables arranged around empty copy space"
                             autocomplete="off"
                         >
 
+
                         <div class="help-text">
-                            Describe what is visible in the image
-                            for accessibility and search engines.
+                            Describe what is visible in the image.
                         </div>
 
                     </div>
@@ -1182,16 +1577,16 @@
                     <div class="form-group">
 
                         <label for="imageStatus">
-
                             Status
-
                         </label>
+
 
                         <select id="imageStatus">
 
                             <option value="draft">
                                 Draft
                             </option>
+
 
                             <option value="published">
                                 Published
@@ -1201,15 +1596,13 @@
 
                     </div>
 
-
                 </div>
 
 
-                <!-- =========================
-                     ACTIONS
-                ========================== -->
+                <!-- ACTIONS -->
 
                 <div class="form-actions">
+
 
                     <button
                         class="secondary-button"
@@ -1219,6 +1612,7 @@
                         Cancel
                     </button>
 
+
                     <button
                         class="success-button"
                         type="button"
@@ -1226,6 +1620,7 @@
                     >
                         Save Draft
                     </button>
+
 
                     <button
                         class="primary-button"
@@ -1238,6 +1633,8 @@
                 </div>
 
 
+                <!-- STATUS -->
+
                 <div
                     class="status-message"
                     id="statusMessage"
@@ -1249,92 +1646,112 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              CATEGORIES
-        ========================== -->
+        ================================================== -->
 
         <section class="card-section">
+
 
             <h2>
                 Image Categories
             </h2>
 
+
             <div class="categories">
+
 
                 <div class="category">
                     <span>🍔</span>
                     Food
                 </div>
 
+
                 <div class="category">
                     <span>🌄</span>
                     Nature
                 </div>
+
 
                 <div class="category">
                     <span>💻</span>
                     Technology
                 </div>
 
+
                 <div class="category">
                     <span>💼</span>
                     Business
                 </div>
+
 
                 <div class="category">
                     <span>✈️</span>
                     Travel
                 </div>
 
+
                 <div class="category">
                     <span>🏠</span>
                     Lifestyle
                 </div>
+
 
                 <div class="category">
                     <span>🎨</span>
                     Abstract
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              IMAGE LIBRARY
-        ========================== -->
+        ================================================== -->
 
         <section class="card-section">
+
 
             <h2>
                 Image Library
             </h2>
 
-            <div class="empty-state">
+
+            <div
+                class="empty-state"
+                id="emptyLibrary"
+            >
 
                 <strong>
-                    Image management is ready
+                    No images yet
                 </strong>
 
+
                 <p>
-                    Saved and published images
-                    will appear here after the
-                    storage system is connected.
+                    Add your first image using
+                    the Add New Image button.
                 </p>
 
             </div>
 
+
+            <div id="imageLibrary"></div>
+
+
             <div class="notice">
 
                 <strong>
-                    Important
+                    Current Storage
                 </strong>
 
-                The current form is a preparation
-                stage. The next step will connect
-                image storage and publishing to
-                the PickStockFree website.
+
+                Images and metadata are currently
+                stored in this browser for testing.
+                The next stage will connect permanent
+                GitHub storage and website publishing.
 
             </div>
 
@@ -1344,113 +1761,146 @@
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <footer>
+
 
         <strong>
             PickStockFree
         </strong>
 
+
         <p>
             Admin Dashboard
         </p>
 
+
     </footer>
 
 
-    <!-- =========================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================== -->
+    ====================================================== -->
 
     <script>
+
+
+        /* =====================================================
+           STORAGE KEY
+        ====================================================== */
+
+        const STORAGE_KEY =
+            "pickStockFreeImages";
+
+
+        /* =====================================================
+           GET ELEMENTS
+        ====================================================== */
 
         const openFormButton =
             document.getElementById(
                 "openFormButton"
             );
 
+
         const imageFormSection =
             document.getElementById(
                 "imageFormSection"
             );
+
 
         const imageForm =
             document.getElementById(
                 "imageForm"
             );
 
+
         const imageFile =
             document.getElementById(
                 "imageFile"
             );
+
 
         const selectedFile =
             document.getElementById(
                 "selectedFile"
             );
 
+
         const previewBox =
             document.getElementById(
                 "previewBox"
             );
+
 
         const imagePreview =
             document.getElementById(
                 "imagePreview"
             );
 
+
         const imageTitle =
             document.getElementById(
                 "imageTitle"
             );
+
 
         const imageCategory =
             document.getElementById(
                 "imageCategory"
             );
 
+
         const imageDescription =
             document.getElementById(
                 "imageDescription"
             );
+
 
         const imageKeywords =
             document.getElementById(
                 "imageKeywords"
             );
 
+
         const imageAlt =
             document.getElementById(
                 "imageAlt"
             );
+
 
         const downloadFilename =
             document.getElementById(
                 "downloadFilename"
             );
 
+
         const imageStatus =
             document.getElementById(
                 "imageStatus"
             );
+
 
         const cancelButton =
             document.getElementById(
                 "cancelButton"
             );
 
+
         const saveDraftButton =
             document.getElementById(
                 "saveDraftButton"
             );
 
+
         const publishButton =
             document.getElementById(
                 "publishButton"
             );
+
 
         const statusMessage =
             document.getElementById(
@@ -1458,9 +1908,154 @@
             );
 
 
-        /* =========================
+        const imageLibrary =
+            document.getElementById(
+                "imageLibrary"
+            );
+
+
+        const emptyLibrary =
+            document.getElementById(
+                "emptyLibrary"
+            );
+
+
+        /* =====================================================
+           GET SAVED IMAGES
+        ====================================================== */
+
+        function getImages() {
+
+            const saved =
+                localStorage.getItem(
+                    STORAGE_KEY
+                );
+
+
+            if (!saved) {
+
+                return [];
+
+            }
+
+
+            try {
+
+                return JSON.parse(
+                    saved
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Storage error:",
+                    error
+                );
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SAVE IMAGES
+        ====================================================== */
+
+        function saveImages(
+            images
+        ) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(
+                    images
+                )
+            );
+
+        }
+
+
+        /* =====================================================
+           UPDATE STATISTICS
+        ====================================================== */
+
+        function updateStatistics() {
+
+            const images =
+                getImages();
+
+
+            const published =
+                images.filter(
+                    function(image) {
+
+                        return (
+                            image.status ===
+                            "published"
+                        );
+
+                    }
+                );
+
+
+            const drafts =
+                images.filter(
+                    function(image) {
+
+                        return (
+                            image.status ===
+                            "draft"
+                        );
+
+                    }
+                );
+
+
+            document.getElementById(
+                "totalImages"
+            ).textContent =
+                images.length;
+
+
+            document.getElementById(
+                "publishedImages"
+            ).textContent =
+                published.length;
+
+
+            document.getElementById(
+                "draftImages"
+            ).textContent =
+                drafts.length;
+
+        }
+
+
+        /* =====================================================
+           SHOW MESSAGE
+        ====================================================== */
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            statusMessage.textContent =
+                message;
+
+
+            statusMessage.className =
+                "status-message " +
+                type;
+
+        }
+
+
+        /* =====================================================
            OPEN FORM
-        ========================== */
+        ====================================================== */
 
         openFormButton.addEventListener(
             "click",
@@ -1468,6 +2063,7 @@
 
                 imageFormSection.style.display =
                     "block";
+
 
                 imageFormSection.scrollIntoView({
                     behavior: "smooth",
@@ -1478,13 +2074,14 @@
         );
 
 
-        /* =========================
-           IMAGE PREVIEW
-        ========================== */
+        /* =====================================================
+           IMAGE SELECTION
+        ====================================================== */
 
         imageFile.addEventListener(
             "change",
             function() {
+
 
                 const file =
                     imageFile.files[0];
@@ -1495,8 +2092,14 @@
                     selectedFile.textContent =
                         "No image selected";
 
+
                     previewBox.style.display =
                         "none";
+
+
+                    imagePreview.src =
+                        "";
+
 
                     return;
 
@@ -1518,13 +2121,16 @@
                         imagePreview.src =
                             event.target.result;
 
+
                         previewBox.style.display =
                             "block";
 
                     };
 
 
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(
+                    file
+                );
 
 
                 if (
@@ -1540,9 +2146,9 @@
         );
 
 
-        /* =========================
+        /* =====================================================
            AUTO ALT TEXT
-        ========================== */
+        ====================================================== */
 
         imageTitle.addEventListener(
             "input",
@@ -1561,32 +2167,16 @@
         );
 
 
-        /* =========================
-           STATUS MESSAGE
-        ========================== */
-
-        function showMessage(
-            message,
-            type
-        ) {
-
-            statusMessage.textContent =
-                message;
-
-            statusMessage.className =
-                "status-message " +
-                type;
-
-        }
-
-
-        /* =========================
+        /* =====================================================
            VALIDATION
-        ========================== */
+        ====================================================== */
 
         function validateForm() {
 
-            if (!imageFile.files[0]) {
+
+            if (
+                !imageFile.files[0]
+            ) {
 
                 showMessage(
                     "Please select an image first.",
@@ -1607,7 +2197,9 @@
                     "warning"
                 );
 
+
                 imageTitle.focus();
+
 
                 return false;
 
@@ -1623,7 +2215,9 @@
                     "warning"
                 );
 
+
                 imageCategory.focus();
+
 
                 return false;
 
@@ -1639,7 +2233,9 @@
                     "warning"
                 );
 
+
                 imageDescription.focus();
+
 
                 return false;
 
@@ -1651,61 +2247,228 @@
         }
 
 
-        /* =========================
+        /* =====================================================
+           GET KEYWORDS
+        ====================================================== */
+
+        function getKeywords() {
+
+            return imageKeywords.value
+                .split(",")
+                .map(
+                    function(keyword) {
+
+                        return keyword.trim();
+
+                    }
+                )
+                .filter(
+                    function(keyword) {
+
+                        return keyword.length > 0;
+
+                    }
+                );
+
+        }
+
+
+        /* =====================================================
+           CREATE IMAGE DATA
+        ====================================================== */
+
+        function createImageData(
+            status
+        ) {
+
+
+            const file =
+                imageFile.files[0];
+
+
+            return {
+
+                id:
+                    Date.now(),
+
+
+                fileName:
+                    file.name,
+
+
+                title:
+                    imageTitle.value.trim(),
+
+
+                category:
+                    imageCategory.value,
+
+
+                description:
+                    imageDescription.value.trim(),
+
+
+                keywords:
+                    getKeywords(),
+
+
+                altText:
+                    imageAlt.value.trim(),
+
+
+                downloadFilename:
+                    downloadFilename.value.trim(),
+
+
+                status:
+                    status,
+
+
+                imageData:
+                    imagePreview.src,
+
+
+                createdAt:
+                    new Date().toISOString()
+
+            };
+
+        }
+
+
+        /* =====================================================
+           SAVE IMAGE
+        ====================================================== */
+
+        function saveImage(
+            status
+        ) {
+
+
+            if (
+                !validateForm()
+            ) {
+
+                return;
+
+            }
+
+
+            const images =
+                getImages();
+
+
+            const newImage =
+                createImageData(
+                    status
+                );
+
+
+            images.push(
+                newImage
+            );
+
+
+            try {
+
+                saveImages(
+                    images
+                );
+
+            } catch (error) {
+
+                showMessage(
+                    "The image is too large for browser storage. Permanent storage will be connected in the next stage.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            updateStatistics();
+
+
+            renderLibrary();
+
+
+            if (
+                status ===
+                "published"
+            ) {
+
+                showMessage(
+                    "✓ Image published and saved to the Image Library.",
+                    "success"
+                );
+
+            } else {
+
+                showMessage(
+                    "✓ Image saved as a draft.",
+                    "success"
+                );
+
+            }
+
+
+            imageForm.reset();
+
+
+            selectedFile.textContent =
+                "No image selected";
+
+
+            previewBox.style.display =
+                "none";
+
+
+            imagePreview.src =
+                "";
+
+
+            imageStatus.value =
+                "draft";
+
+        }
+
+
+        /* =====================================================
            SAVE DRAFT
-        ========================== */
+        ====================================================== */
 
         saveDraftButton.addEventListener(
             "click",
             function() {
 
-                if (!validateForm()) {
-                    return;
-                }
-
-
-                imageStatus.value =
-                    "draft";
-
-
-                showMessage(
-                    "Draft information is ready. Permanent GitHub saving will be connected in the next step.",
-                    "success"
+                saveImage(
+                    "draft"
                 );
 
             }
         );
 
 
-        /* =========================
+        /* =====================================================
            PUBLISH
-        ========================== */
+        ====================================================== */
 
         publishButton.addEventListener(
             "click",
             function() {
 
-                if (!validateForm()) {
-                    return;
-                }
-
-
-                imageStatus.value =
-                    "published";
-
-
-                showMessage(
-                    "Image information is ready for publishing. The permanent GitHub publishing system will be connected in the next step.",
-                    "success"
+                saveImage(
+                    "published"
                 );
 
             }
         );
 
 
-        /* =========================
+        /* =====================================================
            CANCEL
-        ========================== */
+        ====================================================== */
 
         cancelButton.addEventListener(
             "click",
@@ -1713,23 +2476,30 @@
 
                 imageForm.reset();
 
+
                 selectedFile.textContent =
                     "No image selected";
+
 
                 previewBox.style.display =
                     "none";
 
+
                 imagePreview.src =
                     "";
+
 
                 statusMessage.textContent =
                     "";
 
+
                 statusMessage.className =
                     "status-message";
 
+
                 imageFormSection.style.display =
                     "none";
+
 
                 window.scrollTo({
                     top: 0,
@@ -1740,7 +2510,402 @@
         );
 
 
+        /* =====================================================
+           RENDER LIBRARY
+        ====================================================== */
+
+        function renderLibrary() {
+
+
+            const images =
+                getImages();
+
+
+            imageLibrary.innerHTML =
+                "";
+
+
+            if (
+                images.length ===
+                0
+            ) {
+
+                emptyLibrary.style.display =
+                    "block";
+
+
+                return;
+
+            }
+
+
+            emptyLibrary.style.display =
+                "none";
+
+
+            images
+                .slice()
+                .reverse()
+                .forEach(
+                    function(image) {
+
+                        createImageCard(
+                            image
+                        );
+
+                    }
+                );
+
+        }
+
+
+        /* =====================================================
+           CREATE IMAGE CARD
+        ====================================================== */
+
+        function createImageCard(
+            image
+        ) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "image-card";
+
+
+            const imageElement =
+                document.createElement(
+                    "img"
+                );
+
+
+            imageElement.className =
+                "image-card-preview";
+
+
+            imageElement.src =
+                image.imageData;
+
+
+            imageElement.alt =
+                image.altText ||
+                image.title;
+
+
+            const content =
+                document.createElement(
+                    "div"
+                );
+
+
+            content.className =
+                "image-card-content";
+
+
+            const title =
+                document.createElement(
+                    "div"
+                );
+
+
+            title.className =
+                "image-card-title";
+
+
+            title.textContent =
+                image.title;
+
+
+            const category =
+                document.createElement(
+                    "div"
+                );
+
+
+            category.className =
+                "image-card-meta";
+
+
+            category.textContent =
+                "Category: " +
+                image.category;
+
+
+            const fileName =
+                document.createElement(
+                    "div"
+                );
+
+
+            fileName.className =
+                "image-card-meta";
+
+
+            fileName.textContent =
+                "File: " +
+                image.fileName;
+
+
+            const badge =
+                document.createElement(
+                    "span"
+                );
+
+
+            badge.className =
+                "status-badge " +
+                image.status;
+
+
+            badge.textContent =
+                image.status;
+
+
+            const buttons =
+                document.createElement(
+                    "div"
+                );
+
+
+            buttons.className =
+                "image-card-buttons";
+
+
+            const detailsButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            detailsButton.type =
+                "button";
+
+
+            detailsButton.className =
+                "small-button details-button";
+
+
+            detailsButton.textContent =
+                "View Details";
+
+
+            detailsButton.addEventListener(
+                "click",
+                function() {
+
+                    showDetails(
+                        image
+                    );
+
+                }
+            );
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.type =
+                "button";
+
+
+            deleteButton.className =
+                "small-button delete-image-button";
+
+
+            deleteButton.textContent =
+                "Delete";
+
+
+            deleteButton.addEventListener(
+                "click",
+                function() {
+
+                    deleteImage(
+                        image.id
+                    );
+
+                }
+            );
+
+
+            buttons.appendChild(
+                detailsButton
+            );
+
+
+            buttons.appendChild(
+                deleteButton
+            );
+
+
+            content.appendChild(
+                title
+            );
+
+
+            content.appendChild(
+                category
+            );
+
+
+            content.appendChild(
+                fileName
+            );
+
+
+            content.appendChild(
+                badge
+            );
+
+
+            content.appendChild(
+                buttons
+            );
+
+
+            card.appendChild(
+                imageElement
+            );
+
+
+            card.appendChild(
+                content
+            );
+
+
+            imageLibrary.appendChild(
+                card
+            );
+
+        }
+
+
+        /* =====================================================
+           VIEW DETAILS
+        ====================================================== */
+
+        function showDetails(
+            image
+        ) {
+
+
+            const keywords =
+                image.keywords.length
+                    ? image.keywords.join(
+                        ", "
+                    )
+                    : "No keywords";
+
+
+            alert(
+
+                "IMAGE DETAILS\n\n" +
+
+                "Title:\n" +
+                image.title +
+
+                "\n\nCategory:\n" +
+                image.category +
+
+                "\n\nDescription:\n" +
+                image.description +
+
+                "\n\nKeywords:\n" +
+                keywords +
+
+                "\n\nAlt Text:\n" +
+                image.altText +
+
+                "\n\nStatus:\n" +
+                image.status +
+
+                "\n\nFilename:\n" +
+                image.fileName
+
+            );
+
+        }
+
+
+        /* =====================================================
+           DELETE IMAGE
+        ====================================================== */
+
+        function deleteImage(
+            imageId
+        ) {
+
+
+            const confirmed =
+                confirm(
+                    "Are you sure you want to delete this image?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            const images =
+                getImages();
+
+
+            const updatedImages =
+                images.filter(
+                    function(image) {
+
+                        return (
+                            image.id !==
+                            imageId
+                        );
+
+                    }
+                );
+
+
+            saveImages(
+                updatedImages
+            );
+
+
+            updateStatistics();
+
+
+            renderLibrary();
+
+
+            showMessage(
+                "Image deleted successfully.",
+                "success"
+            );
+
+        }
+
+
+        /* =====================================================
+           INITIALIZE DASHBOARD
+        ====================================================== */
+
+        updateStatistics();
+
+
+        renderLibrary();
+
+
     </script>
 
+
 </body>
+
     </html>
