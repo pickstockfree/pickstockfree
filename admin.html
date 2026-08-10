@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PickStockFree Admin Dashboard</title>
+
+    <meta
+        name="description"
+        content="PickStockFree image management dashboard."
+    >
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f1f5f9;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a
+                );
+
+            color: white;
+            padding: 22px 20px;
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .brand {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .admin-label {
+            color: #dbeafe;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        main {
+            max-width: 1180px;
+            margin: auto;
+            padding: 30px 20px 60px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading h1 {
+            font-size: 34px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .page-heading p {
+            color: #64748b;
+        }
+
+        /* =========================
+           STATISTICS
+        ========================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+
+            padding: 22px;
+
+            box-shadow:
+                0 6px 20px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.06
+                );
+        }
+
+        .stat-title {
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .stat-number {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        /* =========================
+           ACTION
+        ========================== */
+
+        .action-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+
+            padding: 28px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 7px 24px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.06
+                );
+        }
+
+        .action-card h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .action-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .primary-button {
+            border: 0;
+
+            background: #2563eb;
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .primary-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* =========================
+           CATEGORY
+        ========================== */
+
+        .section-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+
+            padding: 28px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 7px 24px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.06
+                );
+        }
+
+        .section-card h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .categories {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 12px;
+        }
+
+        .category {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+
+            padding: 15px;
+
+            color: #334155;
+            font-weight: 700;
+        }
+
+        .category span {
+            display: block;
+
+            color: #2563eb;
+            font-size: 23px;
+
+            margin-bottom: 3px;
+        }
+
+        /* =========================
+           IMAGE MANAGEMENT
+        ========================== */
+
+        .empty-state {
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px dashed #cbd5e1;
+            border-radius: 14px;
+
+            padding: 35px 20px;
+
+            color: #64748b;
+        }
+
+        .empty-state strong {
+            display: block;
+
+            color: #334155;
+
+            font-size: 18px;
+
+            margin-bottom: 6px;
+        }
+
+        /* =========================
+           NOTICE
+        ========================== */
+
+        .notice {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 14px;
+
+            padding: 18px;
+
+            color: #1e40af;
+
+            margin-top: 20px;
+        }
+
+        .notice strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0f172a;
+
+            color: #cbd5e1;
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            display: block;
+
+            color: white;
+
+            font-size: 19px;
+
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .stats {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+            .categories {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+        }
+
+        @media (max-width: 560px) {
+
+            header {
+                padding: 18px 16px;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+            }
+
+            .brand {
+                font-size: 22px;
+            }
+
+            .admin-label {
+                font-size: 12px;
+            }
+
+            main {
+                padding:
+                    25px 16px 50px;
+            }
+
+            .page-heading h1 {
+                font-size: 29px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .action-card,
+            .section-card {
+                padding: 21px;
+            }
+
+            .primary-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a
+                class="brand"
+                href="index.html"
+            >
+                PickStockFree
+            </a>
+
+            <div class="admin-label">
+                Admin Dashboard
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <section class="page-heading">
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p>
+                Manage your PickStockFree image collection.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Total Images
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="totalImages"
+                >
+                    1
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Published
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="publishedImages"
+                >
+                    1
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Drafts
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="draftImages"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Categories
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="categoryCount"
+                >
+                    7
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ADD IMAGE
+        ========================== -->
+
+        <section class="action-card">
+
+            <h2>
+                Add New Image
+            </h2>
+
+            <p>
+                Upload a new image and add its metadata
+                to the PickStockFree collection.
+            </p>
+
+            <button
+                class="primary-button"
+                type="button"
+                id="addImageButton"
+            >
+                + Add New Image
+            </button>
+
+            <div class="notice">
+
+                <strong>
+                    Next step
+                </strong>
+
+                The Upload and Metadata form will be
+                connected here in the next stage.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORIES
+        ========================== -->
+
+        <section class="section-card">
+
+            <h2>
+                Image Categories
+            </h2>
+
+            <div class="categories">
+
+                <div class="category">
+                    <span>🍔</span>
+                    Food
+                </div>
+
+                <div class="category">
+                    <span>🌄</span>
+                    Nature
+                </div>
+
+                <div class="category">
+                    <span>💻</span>
+                    Technology
+                </div>
+
+                <div class="category">
+                    <span>💼</span>
+                    Business
+                </div>
+
+                <div class="category">
+                    <span>✈️</span>
+                    Travel
+                </div>
+
+                <div class="category">
+                    <span>🏠</span>
+                    Lifestyle
+                </div>
+
+                <div class="category">
+                    <span>🎨</span>
+                    Abstract
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CURRENT IMAGES
+        ========================== -->
+
+        <section class="section-card">
+
+            <h2>
+                Image Library
+            </h2>
+
+            <div class="empty-state">
+
+                <strong>
+                    Image management is ready
+                </strong>
+
+                <p>
+                    Your existing images will appear here
+                    when the management system is connected.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <strong>
+            PickStockFree
+        </strong>
+
+        <p>
+            Admin Dashboard
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         BASIC SCRIPT
+    ========================== -->
+
+    <script>
+
+        const addImageButton =
+            document.getElementById(
+                "addImageButton"
+            );
+
+
+        addImageButton.addEventListener(
+            "click",
+            function() {
+
+                alert(
+                    "The Image Upload & Metadata system will be added in the next step."
+                );
+
+            }
+        );
+
+
+    </script>
+
+</body>
+  </html>
