@@ -1,509 +1,1021 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>PickStockFree - Free AI Images & Stock Photos</title>
+    <title>
+        PickStockFree - Free AI Images & Stock Photos
+    </title>
 
-    <meta name="description" content="Download free AI-generated images and royalty-free stock photos for websites, blogs, social media, presentations and creative projects.">
+    <meta
+        name="description"
+        content="Discover and download free AI-generated images and stock photos from PickStockFree for websites, blogs, social media, presentations and creative projects."
+    >
 
-    <meta name="keywords" content="free AI images, free stock photos, AI generated images, royalty free images, free images download, free photos">
+    <meta
+        name="keywords"
+        content="free AI images, free stock images, free stock photos, AI generated images, royalty free images, free images download, free photos, stock photos"
+    >
 
-    <meta name="robots" content="index, follow">
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+    >
 
-    <link rel="canonical" href="https://pickstockfree.github.io/">
+    <link
+        rel="canonical"
+        href="https://pickstockfree.github.io/pickstockfree/"
+    >
+
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
+
+    <!-- Open Graph -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="PickStockFree - Free AI Images & Stock Photos"
+    >
+
+    <meta
+        property="og:description"
+        content="Discover and download free AI-generated images and stock photos for creative projects."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pickstockfree.github.io/pickstockfree/"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PickStockFree"
+    >
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             background: #f5f7fb;
+
             color: #111827;
+
             line-height: 1.6;
         }
 
-        header {
-            background: #111827;
-            color: white;
-            padding: 24px 20px;
+
+        a {
+            color: inherit;
         }
 
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1e3a8a
+                );
+
+            color: white;
+
+            padding:
+                22px 20px;
+        }
+
+
         .header-inner {
+
             max-width: 1150px;
+
             margin: auto;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 20px;
         }
 
+
         .logo {
+
             font-size: 27px;
-            font-weight: bold;
+
+            font-weight: 800;
+
             text-decoration: none;
+
             color: white;
+
+            letter-spacing: -0.5px;
         }
 
+
         nav {
+
             display: flex;
+
             gap: 22px;
         }
 
+
         nav a {
+
             color: #cbd5e1;
+
             text-decoration: none;
+
             font-size: 15px;
+
+            font-weight: 700;
         }
+
 
         nav a:hover {
+
             color: white;
         }
+
+
+        /* =========================
+           HERO
+        ========================== */
 
         .hero {
-            background: linear-gradient(135deg, #111827, #1e3a8a);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1e3a8a
+                );
+
             color: white;
+
             text-align: center;
-            padding: 80px 20px;
+
+            padding:
+                80px 20px;
         }
+
 
         .hero h1 {
-            font-size: 48px;
+
+            font-size:
+                clamp(38px, 7vw, 56px);
+
+            line-height: 1.1;
+
             margin-bottom: 18px;
+
+            letter-spacing: -1.5px;
         }
 
+
         .hero p {
-            max-width: 700px;
+
+            max-width: 760px;
+
             margin: auto;
+
             color: #dbeafe;
+
             font-size: 19px;
         }
 
+
         .hero-button {
+
             display: inline-block;
+
             margin-top: 28px;
+
             background: #2563eb;
+
             color: white;
+
             text-decoration: none;
-            padding: 13px 25px;
+
+            padding:
+                13px 25px;
+
             border-radius: 9px;
-            font-weight: bold;
+
+            font-weight: 800;
         }
 
+
         .hero-button:hover {
+
             background: #1d4ed8;
         }
 
+
+        /* =========================
+           MAIN
+        ========================== */
+
         main {
+
             max-width: 1150px;
+
             margin: auto;
-            padding: 55px 20px;
+
+            padding:
+                55px 20px;
         }
 
+
         .section-title {
+
             text-align: center;
+
             margin-bottom: 35px;
         }
 
+
         .section-title h2 {
+
             font-size: 36px;
+
             margin-bottom: 10px;
         }
 
+
         .section-title p {
+
             color: #64748b;
+
             max-width: 700px;
+
             margin: auto;
         }
 
+
+        /* =========================
+           CATEGORIES
+        ========================== */
+
         .categories {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 20px;
+
             margin-bottom: 60px;
         }
 
+
         .category {
+
             background: white;
-            padding: 28px 20px;
+
+            padding:
+                28px 20px;
+
             border-radius: 14px;
+
             text-align: center;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+
+            box-shadow:
+                0 4px 18px
+                rgba(0,0,0,0.06);
         }
 
+
         .category h3 {
+
             margin-bottom: 8px;
+
             font-size: 20px;
         }
 
+
         .category p {
+
             color: #64748b;
+
             font-size: 14px;
         }
 
+
+        /* =========================
+           FEATURED
+        ========================== */
+
         .latest {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 24px;
         }
 
+
         .card {
+
             background: white;
+
             border-radius: 15px;
+
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.07);
         }
+
 
         .image-box {
+
             height: 220px;
-            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dbeafe,
+                    #e0e7ff
+                );
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             color: #475569;
-            font-weight: bold;
+
+            font-weight: 700;
         }
 
+
         .card-content {
+
             padding: 20px;
         }
 
+
         .card h3 {
+
             font-size: 20px;
+
             margin-bottom: 8px;
         }
 
+
         .card p {
+
             color: #64748b;
+
             font-size: 14px;
+
             margin-bottom: 17px;
         }
 
+
         .button {
+
             display: block;
+
             width: 100%;
+
             text-align: center;
+
             background: #2563eb;
+
             color: white;
+
             text-decoration: none;
+
             padding: 11px;
+
             border-radius: 8px;
-            font-weight: bold;
+
+            font-weight: 800;
         }
 
+
         .button:hover {
+
             background: #1d4ed8;
         }
 
+
+        /* =========================
+           ABOUT
+        ========================== */
+
         .about {
+
             margin-top: 60px;
+
             background: white;
+
             padding: 35px;
+
             border-radius: 15px;
+
             text-align: center;
         }
 
+
         .about h2 {
+
             margin-bottom: 12px;
+
             font-size: 30px;
         }
 
+
         .about p {
+
             color: #64748b;
+
             max-width: 800px;
+
             margin: auto;
         }
 
+
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
+
             background: #111827;
+
             color: #cbd5e1;
+
             text-align: center;
-            padding: 35px 20px;
+
+            padding:
+                35px 20px;
+
             margin-top: 20px;
         }
 
+
         footer p {
+
             margin-bottom: 10px;
         }
 
+
         footer a {
+
             color: #93c5fd;
+
             text-decoration: none;
-            margin: 0 8px;
+
+            margin:
+                0 8px;
+
+            font-weight: 600;
         }
+
+
+        footer a:hover {
+
+            color: white;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
 
         @media (max-width: 800px) {
 
             .header-inner {
+
                 flex-direction: column;
             }
 
+
             .hero h1 {
+
                 font-size: 38px;
             }
 
+
             .categories,
             .latest {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
+
         }
+
 
         @media (max-width: 550px) {
 
             nav {
-                gap: 13px;
+
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
             }
 
+
             nav a {
+
                 font-size: 13px;
             }
 
+
             .hero {
-                padding: 60px 18px;
+
+                padding:
+                    60px 18px;
             }
 
+
             .hero h1 {
+
                 font-size: 32px;
             }
 
+
             .hero p {
+
                 font-size: 16px;
             }
 
+
             .categories,
             .latest {
+
                 grid-template-columns: 1fr;
             }
 
+
             main {
-                padding: 40px 16px;
+
+                padding:
+                    40px 16px;
             }
 
+
             .section-title h2 {
+
                 font-size: 29px;
             }
+
+
+            .about {
+
+                padding: 25px 20px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<header>
-    <div class="header-inner">
 
-        <a class="logo" href="index.html">
-            PickStockFree
-        </a>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="images.html">AI Images</a>
-            <a href="videos.html">AI Videos</a>
-        </nav>
+    <header>
 
-    </div>
-</header>
+        <div class="header-inner">
 
-
-<section class="hero">
-
-    <h1>Free AI Images & Stock Photos</h1>
-
-    <p>
-        Discover high-quality AI-generated images and free stock content
-        for websites, blogs, social media, presentations and creative projects.
-    </p>
-
-    <a class="hero-button" href="images.html">
-        Explore Free Images
-    </a>
-
-</section>
+            <a
+                class="logo"
+                href="index.html"
+                aria-label="PickStockFree Home"
+            >
+                PickStockFree
+            </a>
 
 
-<main>
+            <nav>
 
-    <section class="section-title">
+                <a href="index.html">
+                    Home
+                </a>
 
-        <h2>Explore Free Images</h2>
+
+                <a href="images.html">
+                    Free Images
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <h1>
+            Free AI Images & Stock Photos
+        </h1>
+
 
         <p>
-            Find useful and high-quality visuals for your next creative project.
-        </p>
-
-    </section>
-
-
-    <section class="categories">
-
-        <div class="category">
-            <h3>AI Images</h3>
-            <p>
-                Explore creative AI-generated images.
-            </p>
-        </div>
-
-        <div class="category">
-            <h3>Nature</h3>
-            <p>
-                Beautiful landscapes and nature visuals.
-            </p>
-        </div>
-
-        <div class="category">
-            <h3>Technology</h3>
-            <p>
-                Modern technology and digital concepts.
-            </p>
-        </div>
-
-        <div class="category">
-            <h3>Business</h3>
-            <p>
-                Images for business and professional projects.
-            </p>
-        </div>
-
-        <div class="category">
-            <h3>People</h3>
-            <p>
-                AI-generated people and lifestyle visuals.
-            </p>
-        </div>
-
-        <div class="category">
-            <h3>Abstract</h3>
-            <p>
-                Creative abstract designs and backgrounds.
-            </p>
-        </div>
-
-    </section>
-
-
-    <section>
-
-        <div class="section-title">
-
-            <h2>Featured AI Images</h2>
-
-            <p>
-                Browse some of the latest images available on PickStockFree.
-            </p>
-
-        </div>
-
-
-        <div class="latest">
-
-            <article class="card">
-
-                <div class="image-box">
-                    AI Image
-                </div>
-
-                <div class="card-content">
-
-                    <h3>Creative AI Image</h3>
-
-                    <p>
-                        Free AI-generated image for creative projects.
-                    </p>
-
-                    <a class="button" href="images.html">
-                        View Image
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="card">
-
-                <div class="image-box">
-                    AI Technology
-                </div>
-
-                <div class="card-content">
-
-                    <h3>Modern Technology</h3>
-
-                    <p>
-                        AI-generated technology visual for digital projects.
-                    </p>
-
-                    <a class="button" href="images.html">
-                        View Image
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="card">
-
-                <div class="image-box">
-                    Nature
-                </div>
-
-                <div class="card-content">
-
-                    <h3>Nature Landscape</h3>
-
-                    <p>
-                        Beautiful AI-generated nature and landscape image.
-                    </p>
-
-                    <a class="button" href="images.html">
-                        View Image
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <section class="about">
-
-        <h2>About PickStockFree</h2>
-
-        <p>
-            PickStockFree is a growing platform for free AI-generated images
-            and creative stock content. Our goal is to make useful visual
-            resources easy to discover and download for personal and commercial
+            Discover useful AI-generated images and free stock photos
+            for websites, blogs, social media, presentations and
             creative projects.
         </p>
 
+
+        <a
+            class="hero-button"
+            href="images.html"
+        >
+            Explore Free Images
+        </a>
+
     </section>
 
-</main>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
 
 
-<footer>
+        <!-- =========================
+             INTRO
+        ========================== -->
 
-    <p>
-        © 2026 PickStockFree. All rights reserved.
-    </p>
+        <section class="section-title">
 
-    <div>
-        <a href="index.html">Home</a>
-        <a href="images.html">AI Images</a>
-        <a href="videos.html">AI Videos</a>
-    </div>
+            <h2>
+                Explore Free Images
+            </h2>
 
-</footer>
+
+            <p>
+                Find useful and high-quality visual content
+                for your next creative project.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORIES
+        ========================== -->
+
+        <section class="categories">
+
+
+            <div class="category">
+
+                <h3>
+                    Food
+                </h3>
+
+                <p>
+                    Food, cooking, culinary and restaurant images.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Nature
+                </h3>
+
+                <p>
+                    Landscapes, forests, mountains and natural scenery.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Modern technology, digital concepts and innovation.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Business
+                </h3>
+
+                <p>
+                    Professional, workplace and business visuals.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Travel
+                </h3>
+
+                <p>
+                    Travel destinations, tourism and adventure images.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Lifestyle
+                </h3>
+
+                <p>
+                    Everyday life, people, home and modern lifestyle.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    Abstract
+                </h3>
+
+                <p>
+                    Creative abstract designs, patterns and backgrounds.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    People
+                </h3>
+
+                <p>
+                    Useful people and lifestyle visuals for creative projects.
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <h3>
+                    AI Images
+                </h3>
+
+                <p>
+                    Original AI-generated visual content for creative use.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURED IMAGES
+        ========================== -->
+
+        <section>
+
+
+            <div class="section-title">
+
+                <h2>
+                    Featured Free Images
+                </h2>
+
+
+                <p>
+                    Browse some of the latest visual content
+                    available on PickStockFree.
+                </p>
+
+            </div>
+
+
+            <div class="latest">
+
+
+                <article class="card">
+
+                    <div class="image-box">
+                        Food Image
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            Food & Culinary Images
+                        </h3>
+
+
+                        <p>
+                            Explore free food, cooking and culinary
+                            visuals for creative projects.
+                        </p>
+
+
+                        <a
+                            class="button"
+                            href="images.html"
+                        >
+                            View Free Images
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="image-box">
+                        Nature Image
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            Nature & Landscape Images
+                        </h3>
+
+
+                        <p>
+                            Discover useful nature and landscape
+                            visuals for your projects.
+                        </p>
+
+
+                        <a
+                            class="button"
+                            href="images.html"
+                        >
+                            View Free Images
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="image-box">
+                        Technology Image
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <h3>
+                            Technology Images
+                        </h3>
+
+
+                        <p>
+                            Find modern technology and digital
+                            concept images.
+                        </p>
+
+
+                        <a
+                            class="button"
+                            href="images.html"
+                        >
+                            View Free Images
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="about">
+
+            <h2>
+                About PickStockFree
+            </h2>
+
+
+            <p>
+                PickStockFree is a growing platform for free
+                AI-generated images and useful stock photos.
+                Our goal is to make visual resources easy to
+                discover and download for personal and commercial
+                creative projects.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 PickStockFree. All rights reserved.
+        </p>
+
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="images.html">
+                Free Images
+            </a>
+
+        </div>
+
+    </footer>
+
 
 </body>
+
     </html>
