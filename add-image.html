@@ -1,1 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add New Image | PickStockFree</title>
+
+    <meta
+        name="description"
+        content="Add a new free stock image to PickStockFree."
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f8fafc;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(37, 99, 235, 0.25),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #172554
+                );
+
+            color: white;
+            padding: 22px 20px;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .brand {
+            color: white;
+            text-decoration: none;
+
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .back-link {
+            color: #dbeafe;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+
+            padding:
+                45px 20px 80px;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-heading h1 {
+            font-size:
+                clamp(32px, 6vw, 52px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 12px;
+        }
+
+        .page-heading p {
+            color: #64748b;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            font-size: 16px;
+        }
+
+        /* =========================
+           FORM CARD
+        ========================== */
+
+        .form-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(15, 23, 42, 0.08);
+        }
+
+        /* =========================
+           FORM GROUP
+        ========================== */
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            color: #1e293b;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+
+            border: 1px solid #cbd5e1;
+
+            background: white;
+
+            color: #111827;
+
+            border-radius: 10px;
+
+            padding: 13px 14px;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.12);
+        }
+
+        textarea {
+            min-height: 140px;
+
+            resize: vertical;
+        }
+
+        .help-text {
+            margin-top: 6px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           UPLOAD AREA
+        ========================== */
+
+        .upload-area {
+            border: 2px dashed #cbd5e1;
+
+            border-radius: 16px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .upload-area:hover {
+            border-color: #2563eb;
+
+            background: #eff6ff;
+        }
+
+        .upload-icon {
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+        .upload-title {
+            font-size: 17px;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+        .upload-description {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 17px;
+        }
+
+        .choose-file-btn {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        #imageFile {
+            display: none;
+        }
+
+        /* =========================
+           IMAGE PREVIEW
+        ========================== */
+
+        .preview-box {
+            display: none;
+
+            margin-top: 20px;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            background: #f8fafc;
+        }
+
+        .preview-box img {
+            width: 100%;
+
+            max-height: 500px;
+
+            object-fit: contain;
+
+            display: block;
+
+            background: #e2e8f0;
+        }
+
+        .preview-info {
+            padding: 13px 15px;
+
+            font-size: 13px;
+
+            color: #64748b;
+        }
+
+        /* =========================
+           TWO COLUMNS
+        ========================== */
+
+        .two-columns {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        /* =========================
+           KEYWORDS
+        ========================== */
+
+        .keyword-counter {
+            margin-top: 6px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            text-align: right;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .actions {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            border: 0;
+
+            border-radius: 10px;
+
+            padding: 13px 22px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+
+            color: white;
+
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+
+            color: #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        #result {
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            background: #f0fdf4;
+
+            border: 1px solid #bbf7d0;
+        }
+
+        #result h2 {
+            color: #166534;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        #result p {
+            color: #166534;
+
+            font-size: 14px;
+
+            margin-bottom: 7px;
+        }
+
+        .metadata-preview {
+            margin-top: 18px;
+
+            background: white;
+
+            border:
+                1px solid #dcfce7;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+
+            font-size: 13px;
+
+            color: #334155;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0f172a;
+
+            color: #cbd5e1;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        footer strong {
+            display: block;
+
+            color: white;
+
+            font-size: 20px;
+
+            margin-bottom: 6px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 650px) {
+
+            header {
+                padding:
+                    19px 16px;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+            }
+
+            .brand {
+                font-size: 23px;
+            }
+
+            .back-link {
+                font-size: 13px;
+            }
+
+            main {
+                padding:
+                    35px 16px 60px;
+            }
+
+            .form-card {
+                padding: 22px 18px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a
+                class="brand"
+                href="index.html"
+            >
+                PickStockFree
+            </a>
+
+            <a
+                class="back-link"
+                href="images.html"
+            >
+                ← Back to Images
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <div class="page-heading">
+
+            <h1>
+                Add New Image
+            </h1>
+
+            <p>
+                Upload an image and enter its information
+                to prepare it for the PickStockFree image library.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             FORM
+        ========================== -->
+
+        <form
+            class="form-card"
+            id="imageForm"
+        >
+
+
+            <!-- IMAGE UPLOAD -->
+
+            <div class="form-group">
+
+                <label>
+                    Image File
+                    <span class="required">*</span>
+                </label>
+
+                <label
+                    class="upload-area"
+                    for="imageFile"
+                >
+
+                    <div class="upload-icon">
+                        🖼️
+                    </div>
+
+                    <div class="upload-title">
+                        Upload Your Image
+                    </div>
+
+                    <div class="upload-description">
+                        Select a JPG, JPEG, PNG or WEBP image
+                    </div>
+
+                    <span class="choose-file-btn">
+                        Choose Image
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="imageFile"
+                    accept="image/jpeg,image/png,image/webp"
+                    required
+                >
+
+                <div
+                    class="preview-box"
+                    id="previewBox"
+                >
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Image preview"
+                    >
+
+                    <div
+                        class="preview-info"
+                        id="previewInfo"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label for="imageTitle">
+
+                    Image Title
+                    <span class="required">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="imageTitle"
+                    placeholder="Example: Professional Chef Preparing Gourmet Dish"
+                    required
+                >
+
+                <div class="help-text">
+                    Use a clear and descriptive title.
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="imageDescription">
+
+                    Description
+                    <span class="required">*</span>
+
+                </label>
+
+                <textarea
+                    id="imageDescription"
+                    placeholder="Describe what is shown in the image..."
+                    required
+                ></textarea>
+
+                <div class="help-text">
+                    Write a useful description of the image.
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY + TYPE -->
+
+            <div class="two-columns">
+
+                <div class="form-group">
+
+                    <label for="imageCategory">
+
+                        Category
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <select
+                        id="imageCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="food">
+                            Food
+                        </option>
+
+                        <option value="nature">
+                            Nature
+                        </option>
+
+                        <option value="technology">
+                            Technology
+                        </option>
+
+                        <option value="business">
+                            Business
+                        </option>
+
+                        <option value="travel">
+                            Travel
+                        </option>
+
+                        <option value="lifestyle">
+                            Lifestyle
+                        </option>
+
+                        <option value="abstract">
+                            Abstract
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="imageType">
+                        Image Type
+                    </label>
+
+                    <select id="imageType">
+
+                        <option value="AI-created">
+                            AI-created visual
+                        </option>
+
+                        <option value="photography">
+                            Photography
+                        </option>
+
+                        <option value="illustration">
+                            Illustration
+                        </option>
+
+                        <option value="3d">
+                            3D / Render
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEYWORDS -->
+
+            <div class="form-group">
+
+                <label for="imageKeywords">
+
+                    Keywords
+                    <span class="required">*</span>
+
+                </label>
+
+                <textarea
+                    id="imageKeywords"
+                    placeholder="chef, cooking, restaurant, food, kitchen, gourmet, culinary..."
+                    required
+                ></textarea>
+
+                <div
+                    class="keyword-counter"
+                    id="keywordCounter"
+                >
+                    0 keywords
+                </div>
+
+                <div class="help-text">
+                    Separate keywords with commas.
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="clearButton"
+                >
+                    Clear
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Save Image Information
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+        <!-- =========================
+             RESULT
+        ========================== -->
+
+        <div id="result">
+
+            <h2>
+                ✓ Image Information Saved
+            </h2>
+
+            <p>
+                The image information has been prepared successfully.
+            </p>
+
+            <div
+                class="metadata-preview"
+                id="metadataPreview"
+            >
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <strong>
+            PickStockFree
+        </strong>
+
+        <p>
+            Free images and visual resources for creative projects.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const imageFile =
+            document.getElementById("imageFile");
+
+        const previewBox =
+            document.getElementById("previewBox");
+
+        const imagePreview =
+            document.getElementById("imagePreview");
+
+        const previewInfo =
+            document.getElementById("previewInfo");
+
+        const imageForm =
+            document.getElementById("imageForm");
+
+        const imageKeywords =
+            document.getElementById("imageKeywords");
+
+        const keywordCounter =
+            document.getElementById("keywordCounter");
+
+        const result =
+            document.getElementById("result");
+
+        const metadataPreview =
+            document.getElementById("metadataPreview");
+
+        const clearButton =
+            document.getElementById("clearButton");
+
+
+        /* =========================
+           IMAGE PREVIEW
+        ========================== */
+
+        imageFile.addEventListener(
+            "change",
+            function() {
+
+                const file =
+                    imageFile.files[0];
+
+                if (!file) {
+
+                    previewBox.style.display =
+                        "none";
+
+                    return;
+
+                }
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    function(event) {
+
+                        imagePreview.src =
+                            event.target.result;
+
+                        previewBox.style.display =
+                            "block";
+
+                        const sizeMB =
+                            (
+                                file.size /
+                                (1024 * 1024)
+                            ).toFixed(2);
+
+
+                        previewInfo.textContent =
+                            file.name +
+                            " • " +
+                            sizeMB +
+                            " MB";
+
+                    };
+
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+
+        /* =========================
+           KEYWORD COUNTER
+        ========================== */
+
+        imageKeywords.addEventListener(
+            "input",
+            function() {
+
+                const keywords =
+                    imageKeywords.value
+                        .split(",")
+                        .map(function(keyword) {
+                            return keyword.trim();
+                        })
+                        .filter(function(keyword) {
+                            return keyword.length > 0;
+                        });
+
+
+                keywordCounter.textContent =
+                    keywords.length +
+                    " keywords";
+
+            }
+        );
+
+
+        /* =========================
+           SAVE FORM
+        ========================== */
+
+        imageForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const file =
+                    imageFile.files[0];
+
+                const title =
+                    document
+                        .getElementById("imageTitle")
+                        .value
+                        .trim();
+
+                const description =
+                    document
+                        .getElementById("imageDescription")
+                        .value
+                        .trim();
+
+                const category =
+                    document
+                        .getElementById("imageCategory")
+                        .value;
+
+                const type =
+                    document
+                        .getElementById("imageType")
+                        .value;
+
+                const keywords =
+                    imageKeywords.value
+                        .split(",")
+                        .map(function(keyword) {
+                            return keyword.trim();
+                        })
+                        .filter(function(keyword) {
+                            return keyword.length > 0;
+                        });
+
+
+                if (!file) {
+
+                    alert(
+                        "Please select an image first."
+                    );
+
+                    return;
+
+                }
+
+
+                const metadata = {
+
+                    fileName:
+                        file.name,
+
+                    title:
+                        title,
+
+                    description:
+                        description,
+
+                    category:
+                        category,
+
+                    imageType:
+                        type,
+
+                    keywords:
+                        keywords
+
+                };
+
+
+                localStorage.setItem(
+                    "pickStockFreeNewImage",
+                    JSON.stringify(metadata)
+                );
+
+
+                metadataPreview.textContent =
+                    "File: " +
+                    metadata.fileName +
+                    "\n\n" +
+
+                    "Title: " +
+                    metadata.title +
+                    "\n\n" +
+
+                    "Description: " +
+                    metadata.description +
+                    "\n\n" +
+
+                    "Category: " +
+                    metadata.category +
+                    "\n\n" +
+
+                    "Type: " +
+                    metadata.imageType +
+                    "\n\n" +
+
+                    "Keywords: " +
+                    metadata.keywords.join(", ");
+
+
+                result.style.display =
+                    "block";
+
+
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+
+        /* =========================
+           CLEAR FORM
+        ========================== */
+
+        clearButton.addEventListener(
+            "click",
+            function() {
+
+                imageForm.reset();
+
+                previewBox.style.display =
+                    "none";
+
+                imagePreview.src =
+                    "";
+
+                previewInfo.textContent =
+                    "";
+
+                keywordCounter.textContent =
+                    "0 keywords";
+
+                result.style.display =
+                    "none";
+
+                localStorage.removeItem(
+                    "pickStockFreeNewImage"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+  </html>
