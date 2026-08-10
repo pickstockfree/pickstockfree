@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,7 +16,10 @@
         content="PickStockFree image management dashboard."
     >
 
-    <meta name="robots" content="noindex, nofollow">
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
 
     <style>
 
@@ -42,6 +46,7 @@
 
         button,
         input,
+        textarea,
         select {
             font: inherit;
         }
@@ -80,6 +85,7 @@
         .brand {
             color: white;
             text-decoration: none;
+
             font-size: 25px;
             font-weight: 800;
         }
@@ -97,7 +103,9 @@
         main {
             max-width: 1180px;
             margin: auto;
-            padding: 30px 20px 60px;
+
+            padding:
+                30px 20px 60px;
         }
 
         .page-heading {
@@ -128,6 +136,7 @@
                 );
 
             gap: 18px;
+
             margin-bottom: 30px;
         }
 
@@ -151,22 +160,23 @@
 
         .stat-title {
             color: #64748b;
+
             font-size: 13px;
             font-weight: 700;
+
             margin-bottom: 7px;
         }
 
         .stat-number {
             font-size: 30px;
             font-weight: 800;
-            color: #0f172a;
         }
 
         /* =========================
-           ACTION
+           CARDS
         ========================== */
 
-        .action-card {
+        .card-section {
             background: white;
 
             border: 1px solid #e2e8f0;
@@ -186,62 +196,333 @@
                 );
         }
 
-        .action-card h2 {
+        .card-section h2 {
             font-size: 24px;
             margin-bottom: 8px;
         }
 
-        .action-card p {
+        .card-description {
             color: #64748b;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
-        .primary-button {
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .primary-button,
+        .secondary-button,
+        .success-button,
+        .danger-button {
             border: 0;
 
-            background: #2563eb;
-            color: white;
-
-            padding: 13px 22px;
+            padding:
+                12px 20px;
 
             border-radius: 10px;
 
             font-weight: 800;
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        .primary-button {
+            background: #2563eb;
+            color: white;
         }
 
         .primary-button:hover {
             background: #1d4ed8;
         }
 
+        .secondary-button {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .secondary-button:hover {
+            background: #cbd5e1;
+        }
+
+        .success-button {
+            background: #16a34a;
+            color: white;
+        }
+
+        .success-button:hover {
+            background: #15803d;
+        }
+
+        .danger-button {
+            background: #dc2626;
+            color: white;
+        }
+
+        .danger-button:hover {
+            background: #b91c1c;
+        }
+
         /* =========================
-           CATEGORY
+           UPLOAD FORM
         ========================== */
 
-        .section-card {
+        #imageFormSection {
+            display: none;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #334155;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+
             background: white;
+            color: #0f172a;
 
-            border: 1px solid #e2e8f0;
-            border-radius: 18px;
+            padding: 12px 13px;
 
-            padding: 28px;
+            outline: none;
+        }
 
-            margin-bottom: 30px;
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #2563eb;
 
             box-shadow:
-                0 7px 24px
+                0 0 0 3px
                 rgba(
-                    15,
-                    23,
-                    42,
-                    0.06
+                    37,
+                    99,
+                    235,
+                    0.12
                 );
         }
 
-        .section-card h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .form-group textarea {
+            min-height: 125px;
+            resize: vertical;
         }
+
+        .help-text {
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+        }
+
+        /* =========================
+           FILE UPLOAD
+        ========================== */
+
+        .upload-box {
+            border: 2px dashed #93c5fd;
+
+            background: #eff6ff;
+
+            border-radius: 14px;
+
+            padding: 25px 20px;
+
+            text-align: center;
+        }
+
+        .upload-icon {
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .upload-box strong {
+            display: block;
+
+            color: #1e3a8a;
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+        }
+
+        .upload-box p {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .choose-file-button {
+            display: inline-block;
+
+            background: #2563eb;
+            color: white;
+
+            padding:
+                11px 20px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .choose-file-button:hover {
+            background: #1d4ed8;
+        }
+
+        .selected-file {
+            margin-top: 12px;
+
+            color: #334155;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            word-break: break-word;
+        }
+
+        /* =========================
+           IMAGE PREVIEW
+        ========================== */
+
+        .preview-section {
+            margin-top: 25px;
+        }
+
+        .preview-title {
+            color: #334155;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .preview-box {
+            display: none;
+
+            max-width: 700px;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            background: #e2e8f0;
+
+            border: 1px solid #e2e8f0;
+        }
+
+        .preview-box img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+        }
+
+        /* =========================
+           FORM ACTIONS
+        ========================== */
+
+        .form-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 28px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid #e2e8f0;
+        }
+
+        /* =========================
+           STATUS MESSAGE
+        ========================== */
+
+        .status-message {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .status-message.success {
+            display: block;
+
+            background: #dcfce7;
+            border: 1px solid #86efac;
+
+            color: #166534;
+        }
+
+        .status-message.warning {
+            display: block;
+
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+
+            color: #92400e;
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================== */
 
         .categories {
             display: grid;
@@ -253,17 +534,21 @@
                 );
 
             gap: 12px;
+
+            margin-top: 20px;
         }
 
         .category {
             background: #f8fafc;
 
             border: 1px solid #e2e8f0;
+
             border-radius: 12px;
 
             padding: 15px;
 
             color: #334155;
+
             font-weight: 700;
         }
 
@@ -271,36 +556,10 @@
             display: block;
 
             color: #2563eb;
+
             font-size: 23px;
 
             margin-bottom: 3px;
-        }
-
-        /* =========================
-           IMAGE MANAGEMENT
-        ========================== */
-
-        .empty-state {
-            text-align: center;
-
-            background: #f8fafc;
-
-            border: 1px dashed #cbd5e1;
-            border-radius: 14px;
-
-            padding: 35px 20px;
-
-            color: #64748b;
-        }
-
-        .empty-state strong {
-            display: block;
-
-            color: #334155;
-
-            font-size: 18px;
-
-            margin-bottom: 6px;
         }
 
         /* =========================
@@ -312,18 +571,53 @@
 
             border: 1px solid #bfdbfe;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
-            padding: 18px;
+            padding: 16px;
 
             color: #1e40af;
 
             margin-top: 20px;
+
+            font-size: 13px;
         }
 
         .notice strong {
             display: block;
+
             margin-bottom: 4px;
+        }
+
+        /* =========================
+           LIBRARY
+        ========================== */
+
+        .empty-state {
+            text-align: center;
+
+            background: #f8fafc;
+
+            border:
+                1px dashed
+                #cbd5e1;
+
+            border-radius: 14px;
+
+            padding: 35px 20px;
+
+            color: #64748b;
+
+            margin-top: 20px;
+        }
+
+        .empty-state strong {
+            display: block;
+
+            color: #334155;
+
+            font-size: 18px;
+
+            margin-bottom: 6px;
         }
 
         /* =========================
@@ -376,6 +670,14 @@
                     );
             }
 
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: auto;
+            }
+
         }
 
         @media (max-width: 560px) {
@@ -413,12 +715,23 @@
                 grid-template-columns: 1fr;
             }
 
-            .action-card,
-            .section-card {
+            .card-section {
                 padding: 21px;
             }
 
-            .primary-button {
+            .button-row {
+                flex-direction: column;
+            }
+
+            .button-row button {
+                width: 100%;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions button {
                 width: 100%;
             }
 
@@ -429,6 +742,7 @@
 </head>
 
 <body>
+
 
     <!-- =========================
          HEADER
@@ -460,6 +774,7 @@
 
     <main>
 
+
         <section class="page-heading">
 
             <h1>
@@ -467,7 +782,8 @@
             </h1>
 
             <p>
-                Manage your PickStockFree image collection.
+                Upload, organize and manage
+                PickStockFree images.
             </p>
 
         </section>
@@ -478,6 +794,7 @@
         ========================== -->
 
         <section class="stats">
+
 
             <div class="stat-card">
 
@@ -542,42 +859,392 @@
 
             </div>
 
+
         </section>
 
 
         <!-- =========================
-             ADD IMAGE
+             ADD IMAGE ACTION
         ========================== -->
 
-        <section class="action-card">
+        <section class="card-section">
 
             <h2>
                 Add New Image
             </h2>
 
-            <p>
-                Upload a new image and add its metadata
-                to the PickStockFree collection.
+            <p class="card-description">
+                Create a new image entry with its
+                title, description, category and keywords.
             </p>
 
-            <button
-                class="primary-button"
-                type="button"
-                id="addImageButton"
-            >
-                + Add New Image
-            </button>
+            <div class="button-row">
 
-            <div class="notice">
-
-                <strong>
-                    Next step
-                </strong>
-
-                The Upload and Metadata form will be
-                connected here in the next stage.
+                <button
+                    class="primary-button"
+                    type="button"
+                    id="openFormButton"
+                >
+                    + Add New Image
+                </button>
 
             </div>
+
+        </section>
+
+
+        <!-- =========================
+             IMAGE FORM
+        ========================== -->
+
+        <section
+            class="card-section"
+            id="imageFormSection"
+        >
+
+            <h2>
+                Add New Image
+            </h2>
+
+            <p class="card-description">
+                Complete the information below
+                before saving or publishing the image.
+            </p>
+
+
+            <form id="imageForm">
+
+
+                <!-- =========================
+                     IMAGE UPLOAD
+                ========================== -->
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Image
+                        <span class="required">
+                            *
+                        </span>
+                    </label>
+
+                    <div class="upload-box">
+
+                        <div class="upload-icon">
+                            📷
+                        </div>
+
+                        <strong>
+                            Select an image
+                        </strong>
+
+                        <p>
+                            Choose the image file
+                            from your device.
+                        </p>
+
+                        <label
+                            class="choose-file-button"
+                            for="imageFile"
+                        >
+                            Choose Image
+                        </label>
+
+                        <input
+                            class="file-input"
+                            type="file"
+                            id="imageFile"
+                            accept="image/jpeg,image/png,image/webp"
+                        >
+
+                        <div
+                            class="selected-file"
+                            id="selectedFile"
+                        >
+                            No image selected
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PREVIEW
+                ========================== -->
+
+                <div class="preview-section">
+
+                    <div class="preview-title">
+                        Image Preview
+                    </div>
+
+                    <div
+                        class="preview-box"
+                        id="previewBox"
+                    >
+
+                        <img
+                            id="imagePreview"
+                            src=""
+                            alt="Selected image preview"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     METADATA
+                ========================== -->
+
+                <div
+                    class="form-grid"
+                    style="margin-top: 25px;"
+                >
+
+
+                    <!-- TITLE -->
+
+                    <div class="form-group full-width">
+
+                        <label for="imageTitle">
+
+                            Title
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="imageTitle"
+                            placeholder="Example: Professional Chef Preparing a Gourmet Dish"
+                            autocomplete="off"
+                        >
+
+                        <div class="help-text">
+                            Use a clear and descriptive image title.
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label for="imageCategory">
+
+                            Category
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <select id="imageCategory">
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="food">
+                                Food
+                            </option>
+
+                            <option value="nature">
+                                Nature
+                            </option>
+
+                            <option value="technology">
+                                Technology
+                            </option>
+
+                            <option value="business">
+                                Business
+                            </option>
+
+                            <option value="travel">
+                                Travel
+                            </option>
+
+                            <option value="lifestyle">
+                                Lifestyle
+                            </option>
+
+                            <option value="abstract">
+                                Abstract
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DOWNLOAD NAME -->
+
+                    <div class="form-group">
+
+                        <label for="downloadFilename">
+
+                            Download Filename
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="downloadFilename"
+                            placeholder="professional-chef-gourmet-dish.png"
+                            autocomplete="off"
+                        >
+
+                        <div class="help-text">
+                            The filename visitors will receive.
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full-width">
+
+                        <label for="imageDescription">
+
+                            Description
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <textarea
+                            id="imageDescription"
+                            placeholder="Describe the image and its useful applications..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- KEYWORDS -->
+
+                    <div class="form-group full-width">
+
+                        <label for="imageKeywords">
+
+                            Keywords
+
+                        </label>
+
+                        <textarea
+                            id="imageKeywords"
+                            placeholder="chef, cooking, restaurant, food, gourmet, kitchen..."
+                        ></textarea>
+
+                        <div class="help-text">
+                            Separate keywords with commas.
+                            Use relevant search terms.
+                        </div>
+
+                    </div>
+
+
+                    <!-- ALT TEXT -->
+
+                    <div class="form-group full-width">
+
+                        <label for="imageAlt">
+
+                            Alt Text
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="imageAlt"
+                            placeholder="Professional chef preparing a gourmet dish in a restaurant kitchen"
+                            autocomplete="off"
+                        >
+
+                        <div class="help-text">
+                            Describe what is visible in the image
+                            for accessibility and search engines.
+                        </div>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+                        <label for="imageStatus">
+
+                            Status
+
+                        </label>
+
+                        <select id="imageStatus">
+
+                            <option value="draft">
+                                Draft
+                            </option>
+
+                            <option value="published">
+                                Published
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================
+                     ACTIONS
+                ========================== -->
+
+                <div class="form-actions">
+
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="cancelButton"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="success-button"
+                        type="button"
+                        id="saveDraftButton"
+                    >
+                        Save Draft
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        id="publishButton"
+                    >
+                        Publish
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="status-message"
+                    id="statusMessage"
+                ></div>
+
+
+            </form>
 
         </section>
 
@@ -586,7 +1253,7 @@
              CATEGORIES
         ========================== -->
 
-        <section class="section-card">
+        <section class="card-section">
 
             <h2>
                 Image Categories
@@ -635,10 +1302,10 @@
 
 
         <!-- =========================
-             CURRENT IMAGES
+             IMAGE LIBRARY
         ========================== -->
 
-        <section class="section-card">
+        <section class="card-section">
 
             <h2>
                 Image Library
@@ -651,13 +1318,28 @@
                 </strong>
 
                 <p>
-                    Your existing images will appear here
-                    when the management system is connected.
+                    Saved and published images
+                    will appear here after the
+                    storage system is connected.
                 </p>
 
             </div>
 
+            <div class="notice">
+
+                <strong>
+                    Important
+                </strong>
+
+                The current form is a preparation
+                stage. The next step will connect
+                image storage and publishing to
+                the PickStockFree website.
+
+            </div>
+
         </section>
+
 
     </main>
 
@@ -680,24 +1362,379 @@
 
 
     <!-- =========================
-         BASIC SCRIPT
+         JAVASCRIPT
     ========================== -->
 
     <script>
 
-        const addImageButton =
+        const openFormButton =
             document.getElementById(
-                "addImageButton"
+                "openFormButton"
+            );
+
+        const imageFormSection =
+            document.getElementById(
+                "imageFormSection"
+            );
+
+        const imageForm =
+            document.getElementById(
+                "imageForm"
+            );
+
+        const imageFile =
+            document.getElementById(
+                "imageFile"
+            );
+
+        const selectedFile =
+            document.getElementById(
+                "selectedFile"
+            );
+
+        const previewBox =
+            document.getElementById(
+                "previewBox"
+            );
+
+        const imagePreview =
+            document.getElementById(
+                "imagePreview"
+            );
+
+        const imageTitle =
+            document.getElementById(
+                "imageTitle"
+            );
+
+        const imageCategory =
+            document.getElementById(
+                "imageCategory"
+            );
+
+        const imageDescription =
+            document.getElementById(
+                "imageDescription"
+            );
+
+        const imageKeywords =
+            document.getElementById(
+                "imageKeywords"
+            );
+
+        const imageAlt =
+            document.getElementById(
+                "imageAlt"
+            );
+
+        const downloadFilename =
+            document.getElementById(
+                "downloadFilename"
+            );
+
+        const imageStatus =
+            document.getElementById(
+                "imageStatus"
+            );
+
+        const cancelButton =
+            document.getElementById(
+                "cancelButton"
+            );
+
+        const saveDraftButton =
+            document.getElementById(
+                "saveDraftButton"
+            );
+
+        const publishButton =
+            document.getElementById(
+                "publishButton"
+            );
+
+        const statusMessage =
+            document.getElementById(
+                "statusMessage"
             );
 
 
-        addImageButton.addEventListener(
+        /* =========================
+           OPEN FORM
+        ========================== */
+
+        openFormButton.addEventListener(
             "click",
             function() {
 
-                alert(
-                    "The Image Upload & Metadata system will be added in the next step."
+                imageFormSection.style.display =
+                    "block";
+
+                imageFormSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+
+        /* =========================
+           IMAGE PREVIEW
+        ========================== */
+
+        imageFile.addEventListener(
+            "change",
+            function() {
+
+                const file =
+                    imageFile.files[0];
+
+
+                if (!file) {
+
+                    selectedFile.textContent =
+                        "No image selected";
+
+                    previewBox.style.display =
+                        "none";
+
+                    return;
+
+                }
+
+
+                selectedFile.textContent =
+                    "Selected: " +
+                    file.name;
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    function(event) {
+
+                        imagePreview.src =
+                            event.target.result;
+
+                        previewBox.style.display =
+                            "block";
+
+                    };
+
+
+                reader.readAsDataURL(file);
+
+
+                if (
+                    !downloadFilename.value.trim()
+                ) {
+
+                    downloadFilename.value =
+                        file.name;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           AUTO ALT TEXT
+        ========================== */
+
+        imageTitle.addEventListener(
+            "input",
+            function() {
+
+                if (
+                    !imageAlt.value.trim()
+                ) {
+
+                    imageAlt.value =
+                        imageTitle.value;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           STATUS MESSAGE
+        ========================== */
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            statusMessage.textContent =
+                message;
+
+            statusMessage.className =
+                "status-message " +
+                type;
+
+        }
+
+
+        /* =========================
+           VALIDATION
+        ========================== */
+
+        function validateForm() {
+
+            if (!imageFile.files[0]) {
+
+                showMessage(
+                    "Please select an image first.",
+                    "warning"
                 );
+
+                return false;
+
+            }
+
+
+            if (
+                !imageTitle.value.trim()
+            ) {
+
+                showMessage(
+                    "Please enter an image title.",
+                    "warning"
+                );
+
+                imageTitle.focus();
+
+                return false;
+
+            }
+
+
+            if (
+                !imageCategory.value
+            ) {
+
+                showMessage(
+                    "Please select a category.",
+                    "warning"
+                );
+
+                imageCategory.focus();
+
+                return false;
+
+            }
+
+
+            if (
+                !imageDescription.value.trim()
+            ) {
+
+                showMessage(
+                    "Please enter an image description.",
+                    "warning"
+                );
+
+                imageDescription.focus();
+
+                return false;
+
+            }
+
+
+            return true;
+
+        }
+
+
+        /* =========================
+           SAVE DRAFT
+        ========================== */
+
+        saveDraftButton.addEventListener(
+            "click",
+            function() {
+
+                if (!validateForm()) {
+                    return;
+                }
+
+
+                imageStatus.value =
+                    "draft";
+
+
+                showMessage(
+                    "Draft information is ready. Permanent GitHub saving will be connected in the next step.",
+                    "success"
+                );
+
+            }
+        );
+
+
+        /* =========================
+           PUBLISH
+        ========================== */
+
+        publishButton.addEventListener(
+            "click",
+            function() {
+
+                if (!validateForm()) {
+                    return;
+                }
+
+
+                imageStatus.value =
+                    "published";
+
+
+                showMessage(
+                    "Image information is ready for publishing. The permanent GitHub publishing system will be connected in the next step.",
+                    "success"
+                );
+
+            }
+        );
+
+
+        /* =========================
+           CANCEL
+        ========================== */
+
+        cancelButton.addEventListener(
+            "click",
+            function() {
+
+                imageForm.reset();
+
+                selectedFile.textContent =
+                    "No image selected";
+
+                previewBox.style.display =
+                    "none";
+
+                imagePreview.src =
+                    "";
+
+                statusMessage.textContent =
+                    "";
+
+                statusMessage.className =
+                    "status-message";
+
+                imageFormSection.style.display =
+                    "none";
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }
         );
@@ -706,4 +1743,4 @@
     </script>
 
 </body>
-  </html>
+    </html>
