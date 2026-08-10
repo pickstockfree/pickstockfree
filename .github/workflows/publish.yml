@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       image_url:
-        description: "Image URL"
+        description: "Public direct URL of the image"
+        required: true
+        type: string
+      filename:
+        description: "Image filename, for example nature-mountain.jpg"
         required: true
         type: string
       metadata:
@@ -23,9 +27,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update images.json
+      - name: Download image
         env:
           IMAGE_URL: ${{ inputs.image_url }}
+          FILENAME: ${{ inputs.filename }}
+        run: |
+          mkdir -p images
+
+          curl -L --fail --retry 3 \
+            "$IMAGE_URL" \
+            -o "images/$FILENAME"
+
+          echo "Image downloaded successfully."
+
+      - name: Update images.json
+        env:
+          FILENAME: ${{ inputs.filename }}
           METADATA: ${{ inputs.metadata }}
         run: |
           python - <<'PY'
@@ -41,7 +58,8 @@ jobs:
               images = []
 
           metadata = json.loads(os.environ["METADATA"])
-          metadata["image"] = os.environ["IMAGE_URL"]
+
+          metadata["image"] = "images/" + os.environ["FILENAME"]
 
           images.append(metadata)
 
@@ -51,10 +69,13 @@ jobs:
           print("Image metadata added successfully.")
           PY
 
-      - name: Commit changes
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/images.json
+
+          git add images/ data/images.json
+
           git diff --cached --quiet || git commit -m "Publish new image"
+
           git push
