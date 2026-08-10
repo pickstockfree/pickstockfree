@@ -1,0 +1,57 @@
+name: Publish Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_url:
+        description: "Image URL"
+        required: true
+        type: string
+      metadata:
+        description: "Image metadata JSON"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update images.json
+        env:
+          IMAGE_URL: ${{ inputs.image_url }}
+          METADATA: ${{ inputs.metadata }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+
+          path = "data/images.json"
+
+          try:
+              with open(path, "r", encoding="utf-8") as f:
+                  images = json.load(f)
+          except (FileNotFoundError, json.JSONDecodeError):
+              images = []
+
+          metadata = json.loads(os.environ["METADATA"])
+          metadata["image"] = os.environ["IMAGE_URL"]
+
+          images.append(metadata)
+
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(images, f, ensure_ascii=False, indent=2)
+
+          print("Image metadata added successfully.")
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/images.json
+          git diff --cached --quiet || git commit -m "Publish new image"
+          git push
